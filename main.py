@@ -6,7 +6,9 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup as bs
 import urllib
 import urllib.request
-import jsonimport os
+import json
+import os
+
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 
 app = Flask(__name__)
