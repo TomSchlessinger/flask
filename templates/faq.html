@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src = static/script.js></script>
+</head>
+
+<body>
+  
+  <div class="container">
+    <header>
+      <nav>
+        <ul class="nav-bar">
+          <div class="bg"></div>
+          <li><a class="nav-link" href="home">Home</a></li>
+          <li><a class="nav-link active" href="faq">FAQ</a></li>
+          <li><a class="nav-link" href="projects">Projects</a></li>
+        </ul>
+
+        <div class="nav-display">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="home2">
+
+        <section class="more-info">
+          <h1>
+            More about me<hr>
+          </h1>
+
+          <div class="qna">
+            <h4>Question: What hobbies do you have?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer1")'><i id = "answer1fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer1" style="display:none"> Answer: I enjoy cooking(usually for my family), gaming(especially indie games), and programming</h4>
+          </div>
+          
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: How many years have you coded/which languages and how long?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer2")'><i id="answer2fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer2" style="display:none"> Answer: I've been coding since 2015, when my dad starting teaching me. The first language I learned was python, which I have been using since 2015. I started learning java in 2016, during a summer camp, but I didn't use it much until 2019. I learned HTML,CSS, and JS during 2019, and I've been using it since. During late 2020, I decided to start learning C++, which I have been using since for projects ranging from video games, to robots. </h4>
+          </div>
+
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: What got you into coding and engineering?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer3")'><i id="answer3fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer3" style="display:none"> Answer: I've always had an interest in building and coding, and lego(especially the mindstorm sets) helped that interest become more of a passion. Additionally, my dad started teaching me Python at a young age, which helped me learn logic </h4>
+          </div>
+
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: What got you into coding and engineering?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer4")'><i id="answer4fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer4" style="display:none"> Answer: I've always had an interest in building and coding, and lego(especially the mindstorm sets) helped that interest become more of a passion. Additionally, my dad started teaching me Python at a young age, which helped me learn logic </h4>
+          </div>
+
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: What do you see yourself doing when you grow up?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer5")'><i id="answer5fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer5" style="display:none"> Answer: Because I really enjoy building, as well as coding, I would like to be a mechatronics engineer, specifically robotics. Mechatronics is incredibly important, and it's something that interests me. </h4>
+          </div>
+
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: Which programming languages do you particularly like?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer6")'><i id="answer6fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer6" style="display:none"> Answer: I like Java, Python, and C++ particularly because of their uses and how efficient they are. I like Java because it's simple and object-oriented, even though Java has problems with creating GUIs and memory usage. I like Python because of its several uses in the real world, ranging from AI to deploying applications, as well as its massive library count. However, I hate how slow Python is and how it has problems with how it reports errors. I like C++ because of its speed and use for mechatronics engineering, such as its use in Arduinos, but I think that it has several problems with security and managing memory usage.</h4>
+          </div>
+
+          <div class="spacer"><hr class="hr2"></div>
+          
+          <div class="qna">
+            
+            <h4>Question: Which interesting projects have you worked on?</h4>
+            <hr class="hr2">
+            <div class="show-answer" onclick='showAnswer("answer7")'><i id="answer7fa" class="fa fa-angle-down fa-2x"></i></div>
+            <h4 class = "answers" id="answer7" style="display:none"> Answer: I've been working on several projects in different languages, the most notable ones being this website, <a href="https://github.com/TomSchlessinger/fabric-example-mod-1.18.2" target="_blank">my mod for minecraft</a>, and a <a href="https://github.com/TomSchlessinger/flaskthing" target="_blank">recommendation algorithm I made for YouTube</a>.</h4>
+          </div>
+
+        </section>
+      </div>
+
+      <div id="contact">
+        <h3>Contact me
+          <hr>
+        </h3>
+        <div class="social-media">
+          <a href="https://github.com/TomSchlessinger" target="_blank"><i class='fab fa-github'></i></a>
+          <a href="https://www.linkedin.com/in/tom-s-65a097234/" target="_blank"><i class='fab fa-linkedin-in'></i></a>
+          <a href="mailto: tomsch2007@gmail.com" target="_blank"><i class='fa fa-envelope'></i></a>
+        </div>
+      </div>
+
+    </main>
+    
+  </div>
+
+<script>
+  function showAnswer (answerId) {
+    const modAnswerId = answerId + "fa"
+    if(document.getElementById(answerId).style.display == "none"){
+      document.getElementById(answerId).style.display = ""
+      document.getElementById(modAnswerId).classList.toggle("fa-angle-up")
+      document.getElementById(modAnswerId).classList.toggle("fa-angle-down")
+    }else{
+      document.getElementById(answerId).style.display = "none"
+      document.getElementById(modAnswerId).classList.toggle("fa-angle-up")
+      document.getElementById(modAnswerId).classList.toggle("fa-angle-down")
+      
+    }
+  }
+</script> 
+</body>
+
+</html>
+
+<!--
+DISCLAIMER:
+I did not code this entire website, I just modified this template: https://replit.com/@templates/Portfolio-Site-Template#style.css
+-->
