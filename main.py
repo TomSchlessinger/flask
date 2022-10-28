@@ -10,7 +10,8 @@ import json
 import os
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
-kw_model = KeyBERT(model='all-mpnet-base-v2')
+#kw_model = KeyBERT(model='all-mpnet-base-v2')
+kw_model = KeyBERT(model='all-MiniLM-L6-v2')
 
 app = Flask(__name__)
 
