@@ -10,6 +10,7 @@ import json
 import os
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
+kw_model = KeyBERT(model='all-mpnet-base-v2')
 
 app = Flask(__name__)
 
@@ -62,7 +63,6 @@ def getScript(link):
 
 def getKeyWords(full_text,metadata,desc = ""):
     print("getting keywords")
-    kw_model = KeyBERT(model='all-mpnet-base-v2')
     keywords = kw_model.extract_keywords(full_text, keyphrase_ngram_range=(1, 2), stop_words='english', highlight=False, top_n=50)
     #print(metadata)
 
