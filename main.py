@@ -95,7 +95,7 @@ def projects():
 @app.route('/ytrec', methods=['GET', 'POST'])
 def ytrec():
     hasInfo = False
-    if request.method == "POST" && not hasInfo:
+    if request.method == "POST" and not hasInfo:
         hasInfo = True
         out = ""
         g = request.form.get("input")
