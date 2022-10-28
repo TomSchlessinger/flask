@@ -14,6 +14,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 app = Flask(__name__)
 
 def get_video_info(url):
+    print("got vid info")
     session = HTMLSession()
     response = session.get(url)
     soup = bs(response.html.html, "html.parser")
@@ -25,6 +26,8 @@ def get_video_info(url):
     return desc
 
 def getTitle(url):
+    
+    print("got vid title")
     link = str.replace(url, "https://", '')
     if "youtu.be" in link:
         video_id = link.split("youtu.be/")[1]
@@ -43,6 +46,7 @@ def getTitle(url):
         return data["title"] 
 
 def getScript(link):
+    print("got vid script")
     link = str.replace(link, "https://", '')
     if "youtu.be" in link:
         video_id = link.split("youtu.be/")[1]
@@ -57,6 +61,7 @@ def getScript(link):
     return [f_script, title]
 
 def getKeyWords(full_text,metadata,desc = ""):
+    print("getting keywords")
     kw_model = KeyBERT(model='all-mpnet-base-v2')
     keywords = kw_model.extract_keywords(full_text, keyphrase_ngram_range=(1, 2), stop_words='english', highlight=False, top_n=50)
     #print(metadata)
@@ -74,6 +79,7 @@ def getKeyWords(full_text,metadata,desc = ""):
             words+=word + ", "
         for wor,ke in keywords3:
             words+=wor + ", "
+    print("got keywords")
     return words
 
 @app.route('/', methods=['GET', 'POST'])
@@ -96,6 +102,7 @@ def projects():
 def ytrec():
     hasInfo = False
     if request.method == "POST" and not hasInfo:
+        print("got input")
         hasInfo = True
         out = ""
         g = request.form.get("input")
@@ -105,6 +112,7 @@ def ytrec():
         desc = get_video_info(g)
         #print(desc)
         out = getKeyWords(script,data,desc)
+        print("rendering tmeplate")
         return render_template('ytrec.html', output=out)
     return render_template('ytrec.html')
 
