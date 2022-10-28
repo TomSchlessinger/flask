@@ -36,7 +36,7 @@ def getTitle(url):
     url = "https://www.youtube.com/oembed"
     query_string = urllib.parse.urlencode(params)
     url = url + "?" + query_string
-    print(url)
+    #print(url)
     with urllib.request.urlopen(url) as response:
         response_text = response.read()
         data = json.loads(response_text.decode())
@@ -53,27 +53,13 @@ def getScript(link):
     f_script = TextFormatter().format_transcript(script)
     f_script = str.replace(f_script,"\n", " ")
     title = getTitle(link)
-    print(f_script)
+    #print(f_script)
     return [f_script, title]
 
 def getKeyWords(full_text,metadata,desc = ""):
     kw_model = KeyBERT(model='all-mpnet-base-v2')
-    keywords = kw_model.extract_keywords(full_text,
-                                         keyphrase_ngram_range=(1, 2),
-                                         stop_words='english',
-                                         highlight=False,
-                                         top_n=50)
-    print(metadata)
-    keywords2 = kw_model.extract_keywords(metadata,
-                                         keyphrase_ngram_range=(1, 2),
-                                         stop_words='english',
-                                         highlight=False,
-                                         top_n=2)
-    keywords3 = kw_model.extract_keywords(desc,
-                                         keyphrase_ngram_range=(1, 2),
-                                         stop_words='english',
-                                         highlight=False,
-                                         top_n=5)
+    keywords = kw_model.extract_keywords(full_text, keyphrase_ngram_range=(1, 2), stop_words='english', highlight=False, top_n=50)
+    #print(metadata)
 
     word_num = 0
     words = ""
@@ -82,6 +68,8 @@ def getKeyWords(full_text,metadata,desc = ""):
             words+=k + ", "
             word_num+=1
     if(word_num < 5):
+        keywords2 = kw_model.extract_keywords(metadata, keyphrase_ngram_range=(1, 2), stop_words='english', highlight=False, top_n=2)
+        keywords3 = kw_model.extract_keywords(desc, keyphrase_ngram_range=(1, 2), stop_words='english', highlight=False, top_n=5)
         for word,key in keywords2:
             words+=word + ", "
         for wor,ke in keywords3:
@@ -106,14 +94,16 @@ def projects():
 
 @app.route('/ytrec', methods=['GET', 'POST'])
 def ytrec():
-    if request.method == "POST":
+    hasInfo = False
+    if request.method == "POST" && not hasInfo:
+        hasInfo = True
         out = ""
         g = request.form.get("input")
         info = getScript(g)
         script = info[0]
         data = info[1]
         desc = get_video_info(g)
-        print(desc)
+        #print(desc)
         out = getKeyWords(script,data,desc)
         return render_template('ytrec.html', output=out)
     return render_template('ytrec.html')
